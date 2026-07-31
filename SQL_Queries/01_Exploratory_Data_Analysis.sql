@@ -2,6 +2,10 @@
 -- Project: Data Analyst SQL Portfolio
 -- File   : 01_EDA_SQL.sql
 -- Dataset: HRDATA
+-- Purpose : Perform Exploratory Data Analysis (EDA) to
+--           understand employee demographics, workforce
+--           distribution, and key HR metrics.
+-- ============================================================
 -- Author : Shashank S
 -- ==========================================
 
