@@ -1,80 +1,124 @@
-/*============================================================
-Project     : Data Analyst SQL Portfolio
-File        : 03_Aggregate_Functions.sql
-Dataset     : HRDATA
-Author      : Shashank S
+-- ============================================================
+-- Project : Data Analyst SQL Portfolio
+-- File    : 03_Filtering_and_Sorting.sql
+-- Dataset : HR Employee Attrition Dataset
+-- Table   : HRDATA
+-- Author  : Shashank S
+-- Tool    : Microsoft SQL Server Management Studio (SSMS)
+--
+-- Description:
+-- This script demonstrates SQL filtering and sorting
+-- techniques using WHERE, ORDER BY, comparison operators,
+-- and conditional filtering to answer HR business questions.
+--
+-- SQL Concepts Covered:
+-- • WHERE
+-- • ORDER BY
+-- • Comparison Operators (=, >, <)
+-- • Filtering Data
+-- • TOP
+-- • Business Data Analysis
+-- ============================================================
 
-Description :
-This file demonstrates SQL Aggregate Functions such as
-COUNT(), SUM(), AVG(), MIN(), MAX() and their business use cases.
-============================================================*/
+------------------------------------------------------------
+-- Question 21
+-- Which employees have left the company?
+------------------------------------------------------------
 
-/*============================================================
-Question 1: Find the total number of employees
-============================================================*/
+SELECT *
+FROM HRDATA
+WHERE Attrition = 1;
 
-SELECT COUNT(*) AS TotalEmployees
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 22
+-- Which employees are currently working in the company?
+------------------------------------------------------------
 
-/*============================================================
-Question 2: Find the average monthly income
-============================================================*/
+SELECT *
+FROM HRDATA
+WHERE Attrition = 0;
 
-SELECT AVG(MonthlyIncome) AS AverageSalary
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 23
+-- Which employees earn more than 50,000 per month?
+------------------------------------------------------------
 
-/*============================================================
-Question 3: Find the highest monthly income
-============================================================*/
+SELECT
+    EmployeeNumber,
+    JobRole,
+    Department,
+    MonthlyIncome
+FROM HRDATA
+WHERE MonthlyIncome > 50000
+ORDER BY MonthlyIncome DESC;
 
-SELECT MAX(MonthlyIncome) AS HighestSalary
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 24
+-- Which employees are younger than 30 years?
+------------------------------------------------------------
 
-/*============================================================
-Question 4: Find the lowest monthly income
-============================================================*/
+SELECT
+    EmployeeNumber,
+    Age,
+    Department
+FROM HRDATA
+WHERE Age < 30
+ORDER BY Age ASC;
 
-SELECT MIN(MonthlyIncome) AS LowestSalary
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 25
+-- Which employees are older than 50 years?
+------------------------------------------------------------
 
-/*============================================================
-Question 5: Find the total monthly salary expenditure
-============================================================*/
+SELECT
+    EmployeeNumber,
+    Age,
+    Department
+FROM HRDATA
+WHERE Age > 50
+ORDER BY Age DESC;
 
-SELECT SUM(MonthlyIncome) AS TotalSalaryExpense
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 26
+-- Which employees belong to the Sales department?
+------------------------------------------------------------
 
-/*============================================================
-Question 6: Find the total working years of all employees
-============================================================*/
+SELECT *
+FROM HRDATA
+WHERE Department = 'Sales';
 
-SELECT SUM(TotalWorkingYears) AS TotalWorkingYears
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 27
+-- Which employees belong to the Research & Development department?
+------------------------------------------------------------
 
-/*============================================================
-Question 7: Find the average age of employees
-============================================================*/
+SELECT *
+FROM HRDATA
+WHERE Department = 'Research & Development';
 
-SELECT AVG(Age) AS AverageAge
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 28
+-- Which employees belong to the Human Resources department?
+------------------------------------------------------------
 
-/*============================================================
-Question 8: Find the maximum years at the company
-============================================================*/
+SELECT *
+FROM HRDATA
+WHERE Department = 'Human Resources';
 
-SELECT MAX(YearsAtCompany) AS MaximumYears
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 29
+-- Which employees work overtime?
+------------------------------------------------------------
 
-/*============================================================
-Question 9: Find the minimum years since last promotion
-============================================================*/
+SELECT *
+FROM HRDATA
+WHERE OverTime = 'Yes';
 
-SELECT MIN(YearsSinceLastPromotion) AS MinimumPromotionGap
-FROM HRDATA;
+------------------------------------------------------------
+-- Question 30
+-- Which employees do not work overtime?
+------------------------------------------------------------
 
-/*============================================================
-Question 10: Find the average distance from home
-============================================================*/
-
-SELECT AVG(DistanceFromHome) AS AverageDistance
-FROM HRDATA;
+SELECT *
+FROM HRDATA
+WHERE OverTime = 'No';
