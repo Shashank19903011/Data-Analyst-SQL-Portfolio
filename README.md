@@ -30,7 +30,7 @@ This repository contains SQL scripts developed using the *** HR Employee Attriti
 
 ## 📂 Dataset
 
-**IBM HR Employee Attrition Dataset**
+**HR Employee Attrition Dataset**
 
 - Employee Workforce Data
 - HR Analytics
