@@ -1,108 +1,142 @@
-/*============================================================
-Project     : Data Analyst SQL Portfolio
-File        : 02_SQL_Basics.sql
-Dataset     : HRDATA
-Author      : Shashank S
+-- ============================================================
+-- Project : Data Analyst SQL Portfolio
+-- File    : 02_Aggregate_Functions.sql
+-- Dataset : HR Employee Attrition
+-- Table   : HRDATA
+-- Author  : Shashank S
+-- Tool    : Microsoft SQL Server Management Studio (SSMS)
+--
+-- Purpose :
+-- Demonstrate the use of SQL aggregate functions to analyze
+-- employee demographics, salary statistics, overtime,
+-- job levels, and attrition metrics.
+--
+-- Concepts Covered :
+-- • COUNT()
+-- • AVG()
+-- • MIN()
+-- • MAX()
+-- • GROUP BY
+-- • ORDER BY
+-- • CASE Expression
+-- • Business KPI Analysis
+-- ============================================================
+------------------------------------------------------------
+-- Question 11
+-- How many employees work overtime?
+------------------------------------------------------------
 
-Description :
-Basic SQL queries covering SELECT, WHERE, DISTINCT,
-ORDER BY, TOP, BETWEEN, IN, LIKE, and NULL handling.
-============================================================*/
+SELECT
+    OverTime,
+    COUNT(*) AS EmployeeCount
+FROM HRDATA
+GROUP BY OverTime
+ORDER BY EmployeeCount DESC;
 
-/*============================================================
-Question 1: Display Employee Number, Department and Monthly Income
-============================================================*/
+------------------------------------------------------------
+-- Question 12
+-- How many employees are in each job level?
+------------------------------------------------------------
 
-SELECT EmployeeNumber,
-       Department,
-       MonthlyIncome
+SELECT
+    JobLevel,
+    COUNT(*) AS EmployeeCount
+FROM HRDATA
+GROUP BY JobLevel
+ORDER BY EmployeeCount DESC;
+
+------------------------------------------------------------
+-- Question 13
+-- What is the average monthly income of employees?
+------------------------------------------------------------
+
+SELECT
+    AVG(MonthlyIncome) AS AverageMonthlyIncome
 FROM HRDATA;
 
-/*============================================================
-Question 2: Display employees whose salary is greater than 5000
-============================================================*/
+------------------------------------------------------------
+-- Question 14
+-- What are the minimum and maximum employee ages?
+------------------------------------------------------------
 
-SELECT EmployeeNumber,
-       MonthlyIncome
-FROM HRDATA
-WHERE MonthlyIncome > 5000;
-
-/*============================================================
-Question 3: Display employees whose salary is between 5000 and 10000
-============================================================*/
-
-SELECT EmployeeNumber,
-       MonthlyIncome
-FROM HRDATA
-WHERE MonthlyIncome BETWEEN 5000 AND 10000;
-
-/*============================================================
-Question 4: Display employees working in Sales department
-============================================================*/
-
-SELECT EmployeeNumber,
-       Department
-FROM HRDATA
-WHERE Department = 'Sales';
-
-/*============================================================
-Question 5: Display employees working in Sales or Human Resources
-============================================================*/
-
-SELECT EmployeeNumber,
-       Department
-FROM HRDATA
-WHERE Department IN ('Sales', 'Human Resources');
-
-/*============================================================
-Question 6: Display distinct job roles
-============================================================*/
-
-SELECT DISTINCT JobRole
+SELECT
+    MIN(Age) AS MinimumAge,
+    MAX(Age) AS MaximumAge
 FROM HRDATA;
 
-/*============================================================
-Question 7: Display the top 10 highest-paid employees
-============================================================*/
+------------------------------------------------------------
+-- Question 15
+-- What is the average monthly income by gender?
+------------------------------------------------------------
 
-SELECT TOP 10
-       EmployeeNumber,
-       MonthlyIncome
+SELECT
+    Gender,
+    AVG(MonthlyIncome) AS AverageMonthlyIncome
 FROM HRDATA
-ORDER BY MonthlyIncome DESC;
+GROUP BY Gender
+ORDER BY AverageMonthlyIncome DESC;
 
-/*============================================================
-Question 8: Display employees whose salary is NOT between
-5000 and 10000
-============================================================*/
+------------------------------------------------------------
+-- Question 16
+-- Which department has the highest average monthly income?
+------------------------------------------------------------
 
-SELECT EmployeeNumber,
-       MonthlyIncome
+SELECT
+    Department,
+    AVG(MonthlyIncome) AS AverageMonthlyIncome
 FROM HRDATA
-WHERE MonthlyIncome NOT BETWEEN 5000 AND 10000;
+GROUP BY Department
+ORDER BY AverageMonthlyIncome DESC;
 
-/*============================================================
-Question 9: Display employees sorted by Department
-and Monthly Income
-============================================================*/
+------------------------------------------------------------
+-- Question 17
+-- Which job role has the highest average monthly income?
+------------------------------------------------------------
 
-SELECT EmployeeNumber,
-       Department,
-       MonthlyIncome
+SELECT
+    JobRole,
+    AVG(MonthlyIncome) AS AverageMonthlyIncome
 FROM HRDATA
-ORDER BY Department,
-         MonthlyIncome DESC;
+GROUP BY JobRole
+ORDER BY AverageMonthlyIncome DESC;
 
-/*============================================================
-Question 10: Display employees with monthly income greater
-than the company average salary
-============================================================*/
+------------------------------------------------------------
+-- Question 18
+-- How many employees have left the company?
+------------------------------------------------------------
 
-SELECT EmployeeNumber,
-       MonthlyIncome
+SELECT
+    COUNT(*) AS EmployeesLeft
 FROM HRDATA
-WHERE MonthlyIncome >
-(
-    SELECT AVG(MonthlyIncome)
-    FROM HRDATA
-);
+WHERE Attrition = 1;
+
+------------------------------------------------------------
+-- Question 19
+-- What is the overall employee attrition rate (%)?
+------------------------------------------------------------
+
+SELECT
+    CAST(
+        SUM(CASE
+                WHEN Attrition = 1 THEN 1
+                ELSE 0
+            END) * 100.0 / COUNT(*)
+    AS DECIMAL(5,2)) AS AttritionRate
+FROM HRDATA;
+
+------------------------------------------------------------
+-- Question 20
+-- Which department has the highest attrition rate?
+------------------------------------------------------------
+
+SELECT
+    Department,
+    CAST(
+        SUM(CASE
+                WHEN Attrition = 1 THEN 1
+                ELSE 0
+            END) * 100.0 / COUNT(*)
+    AS DECIMAL(5,2)) AS AttritionRate
+FROM HRDATA
+GROUP BY Department
+ORDER BY AttritionRate DESC;
