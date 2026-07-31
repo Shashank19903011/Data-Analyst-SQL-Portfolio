@@ -40,7 +40,6 @@ Data-Analyst-SQL-Portfolio
 ├── SQL_Queries
 ├── HRDATA_Database
 ├── Screenshots
-└── Resources
 ```
 
 ---
