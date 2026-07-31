@@ -1,55 +1,71 @@
 # 📊 Data Analyst SQL Portfolio
 
-Welcome to my SQL portfolio! This repository showcases my SQL skills through interview questions, real-world business scenarios, and analytical problem-solving.
+Welcome to my SQL portfolio! This repository showcases my SQL skills through real-world business scenarios, interview-focused SQL problems, and data analysis using Microsoft SQL Server.
+
+---
 
 ## 📌 About
 
-This repository contains SQL solutions designed for Data Analyst interviews. It demonstrates my ability to write efficient queries, analyze business data, and solve practical SQL problems using SQL Server.
+This repository contains SQL scripts developed using the **IBM HR Employee Attrition Dataset**. The projects demonstrate my ability to perform exploratory data analysis, write efficient SQL queries, solve business problems, and generate meaningful insights for Data Analyst roles.
 
 ---
 
 ## 🛠️ Skills Demonstrated
 
 - SQL Fundamentals
-- Filtering & Sorting
+- Exploratory Data Analysis (EDA)
+- Data Filtering & Sorting
 - Aggregate Functions
 - GROUP BY & HAVING
-- Joins
-- Subqueries
+- CASE Expressions
+- Correlated & Nested Subqueries
 - Common Table Expressions (CTEs)
 - Window Functions
-- ROW_NUMBER()
-- RANK()
 - DENSE_RANK()
-- Business Scenario-Based Queries
-- Query Optimization.
+- HR Analytics
+- Business Scenario-Based SQL Queries
+- Data Aggregation & KPI Reporting
 
 ---
 
-## 🗄️ Database
+## 📂 Dataset
 
-- HRDATA Dataset
+**IBM HR Employee Attrition Dataset**
 
----
-
-## 📂 Repository Structure
-
-```text
-Data-Analyst-SQL-Portfolio
-│
-├── SQL_Queries
-├── HRDATA_Database
-├── Screenshots
-```
+- Employee Workforce Data
+- HR Analytics
+- Employee Attrition Analysis
+- Salary & Compensation Analysis
 
 ---
 
-🎯 **Objective**
+## 📂 SQL Scripts
 
-Showcase practical SQL skills by analyzing real-world datasets, solving business problems, and demonstrating proficiency in database design, data querying, and analytical reporting for Data Analyst roles.
+| File | Description |
+|------|-------------|
+| 01_Exploratory_Data_Analysis.sql | Employee data exploration and workforce analysis |
+| 02_Aggregate_Functions.sql | Aggregate functions and HR KPI analysis |
+| 03_Aggregate_Functions.sql | Advanced aggregate functions, GROUP BY, and HAVING |
+| 04_Subqueries_CTEs.sql | Correlated subqueries and Common Table Expressions (CTEs) |
+| 05_Window_Functions.sql | Window functions using DENSE_RANK() and advanced HR analytics |
+
+---
+
+## 🎯 Objective
+
+Demonstrate practical SQL skills by solving real-world business problems, analyzing HR data, and applying SQL techniques to generate meaningful business insights for Data Analyst roles.
+
+---
+
+## 💻 Tools Used
+
+- Microsoft SQL Server Management Studio (SSMS)
+- GitHub
 
 ---
 
 ## 👨‍💻 Author
 
 **Shashank S**
+
+Data Analyst | SQL |
