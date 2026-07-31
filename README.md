@@ -44,9 +44,9 @@ Data-Analyst-SQL-Portfolio
 
 ---
 
-## 🎯 Objective
+🎯 **Objective**
 
-Build a strong SQL portfolio for Data Analyst roles by solving practical interview questions and business problems.
+Showcase practical SQL skills by analyzing real-world datasets, solving business problems, and demonstrating proficiency in database design, data querying, and analytical reporting for Data Analyst roles.
 
 ---
 
