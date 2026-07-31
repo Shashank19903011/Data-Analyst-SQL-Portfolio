@@ -6,7 +6,7 @@ Welcome to my SQL portfolio! This repository showcases my SQL skills through rea
 
 ## 📌 About
 
-This repository contains SQL scripts developed using the **IBM HR Employee Attrition Dataset**. The projects demonstrate my ability to perform exploratory data analysis, write efficient SQL queries, solve business problems, and generate meaningful insights for Data Analyst roles.
+This repository contains SQL scripts developed using the *** HR Employee Attrition Dataset**. The projects demonstrate my ability to perform exploratory data analysis, write efficient SQL queries, solve business problems, and generate meaningful insights for Data Analyst roles.
 
 ---
 
