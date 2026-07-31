@@ -22,7 +22,7 @@ This repository contains SQL solutions designed for Data Analyst interviews. It 
 - RANK()
 - DENSE_RANK()
 - Business Scenario-Based Queries
-- Query Optimization
+- Query Optimization.
 
 ---
 
