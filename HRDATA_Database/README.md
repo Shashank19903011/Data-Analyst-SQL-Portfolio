@@ -69,23 +69,26 @@ HR Analytics Employee Attrition & Performance
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
-```
-HRDATA_Database/
+```text
+Data-Analyst-SQL-Portfolio/
 │
-├── Dataset/
-│   └── WA_Fn-UseC_-HR-Employee-Attrition.csv
+├── HRDATA_Database/
+│   ├── Dataset/
+│   │   └── WA_Fn-UseC_-HR-Employee-Attrition.csv
+│   └── README.md
 │
-├── SQL Scripts/
-│
-├── Output/
-│
-├── Images/
+├── SQL_Queries/
+│   ├── 01_Exploratory_Data_Analysis.sql
+│   ├── 02_Aggregate_Functions.sql
+│   ├── 03_Filtering_and_Sorting.sql
+│   ├── 04_Subqueries_CTEs.sql
+│   ├── 05_Window_Functions.sql
+│   └── README.md
 │
 └── README.md
 ```
-
 ---
 
 ## SQL Topics Covered
