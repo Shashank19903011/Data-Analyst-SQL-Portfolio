@@ -54,7 +54,7 @@ SELECT
     AVG(MonthlyIncome) AS AverageMonthlyIncome
 FROM HRDATA;
 
-------------------------------------------------------------
+-----------------------------------------------------------_
 -- Question 14
 -- What are the minimum and maximum employee ages?
 ------------------------------------------------------------
